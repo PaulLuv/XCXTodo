@@ -1,10 +1,12 @@
-<!--pages/create/create.wxml-->
 <view class='container'>
-  <input class='input' value='{{inputTitle}}' placeholder='请输入待办事项（必填）' />
-  <textarea class='textarea' value='{{inputValue}}'placeholder='请输入待办内容（可选）'/>
+  <input class='input' placeholder='请输入待办事项（必填)' auto-focus='true' bindinput='bindInputTitle'/>
+  <textarea class='textarea' placeholder='请输入待办内容（可选)' bindinput='bindTextarea'/>
+
+  <view class='levelButton' bindtap='levelSetting'>
+    <view class='title'>事件优先级:</view>
+    <view class='{{levelClass}}'>{{levelText}}</view>
+  </view>
   <view class='todoOperation'>
     <button class='findButton' bindtap='createTodo'>创建</button>
-
-    <button class='findButton' bindtap='findTodo'>查找</button>
   </view>
 </view>

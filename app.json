@@ -29,18 +29,6 @@
       "text": "添加",
       "iconPath": "image/cart-off.png",
       "selectedIconPath": "image/cart-on.png"
-    },
-    {
-      "pagePath": "pages/create/create",
-      "text": "完成",
-      "iconPath": "image/order-off.png",
-      "selectedIconPath": "image/order-on.png"
-    },
-    {
-      "pagePath": "pages/create/create",
-      "text": "待办",
-      "iconPath": "image/my-off.png",
-      "selectedIconPath": "image/my-on.png"
     }
     ]
   }

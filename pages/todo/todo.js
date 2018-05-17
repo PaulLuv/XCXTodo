@@ -30,15 +30,7 @@ Page({
       content: '这是一个模态弹窗',
       success: function (res) {
         if (res.confirm) {
-          wx.showActionSheet({
-            itemList: ['A', 'B', 'C'],
-            success: function (res) {
-              console.log(res.tapIndex)
-            },
-            fail: function (res) {
-              console.log(res.errMsg)
-            }
-          })
+          
         } else if (res.cancel) {
           console.log('用户点击取消')
         }

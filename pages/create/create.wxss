@@ -12,3 +12,42 @@
   margin-top: 20px;
   background: #EEE;
 }
+.levelButton{
+  width: 100%;
+  display: flex;
+  margin-top: 20px;
+  margin-left: 20px;
+  flex-direction: top;
+  align-items: center;
+  border: whitesmoke;
+}
+.title{
+  color: #222;
+  font-style: blod;
+  size: 17px;
+}
+.level1{
+  color: #F00;
+  size: 15px;
+}
+.level2{
+  color: #A65;
+  size: 15px;
+}
+.level3{
+  size: 15px;
+  color: #AA5;
+}
+.level4{
+  size: 15px;
+  color: #5A6;
+}
+.date{
+  width: 100%;
+  text-align: left;
+  margin-left: 10px;
+  padding-left: 10px;
+  color: #222;
+  size: 20px;
+}
+

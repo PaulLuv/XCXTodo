@@ -1,4 +1,6 @@
 // pages/create/create.js
+const todoItem = require('../../utils/todoitem.js')
+const util = require('../../utils/util.js')
 Page({
 
   /**
@@ -7,7 +9,16 @@ Page({
   data: {
     inputTitle: '',
     inputValue: '',
-    todoList: []
+    todoList: [],
+    level: 4,
+    levelText: "不重要不紧急",
+    levelClass: 'level4',
+  },
+  bindInputTitle: function(e){
+    this.data.inputTitle = e.detail.value;
+  },
+  bindTextarea: function(e){
+    this.data.inputValue = e.detail.value
   },
 
   createTodo: function (e) {
@@ -19,14 +30,45 @@ Page({
       })
       return
     }
-    let todoItem = todoItem.createTodoItem(title,value)
-    this.data.todoList.unshift(todoItem)
+    let item = todoItem.createTodoItem(title, value, this.data.level)
+    this.data.todoList.unshift(item)
     this.setData({
       todoList: util.showDateHelper(this.data.todoList),
       inputTitle: '',
       inputValue: ''
     })
     wx.setStorageSync('todos', this.data.todoList)
+  },
+
+  levelSetting: function(e){
+    wx.showActionSheet({
+      itemList: ['重要且紧急', '重要不紧急', '紧急不重要','不紧急不重要'],
+      success: function (res) {
+        let level = res.tapIndex + 1;
+        this.data.level = level;
+        switch(level){
+          case (1):
+            this.data.levelText = "重要且紧急"
+            this.data.levelClass = 'level1'
+            break;
+          case (2):
+            this.data.levelText = "重要不紧急"
+            this.data.levelClass = 'level2'
+            break;
+          case (3):
+            this.data.levelText = "紧急不重要"
+            this.data.levelClass = 'level3'
+            break;
+          case (4):
+            this.data.levelText = "不紧急不重要"
+            this.data.levelClass = 'level4'
+            break;
+        }
+      },
+      fail: function (res) {
+        console.log(res.errMsg)
+      }
+    })
   },
 
   /**

@@ -27,11 +27,9 @@
 
      <text class="todoContent">{{index + 1}}. {{todo.title}}</text> 
 
-     <button class='deleteButton' bindtap='deleteItem' data-index='index'
-              data-content='todo'>删除</button>
+     <button class='deleteButton' bindtap='deleteItem' data-index='{{index}}' data-title='{{todo.title}}'>删除</button>
 
-     <button class='editButton' bindtap='editItem' data-index='index'
-              data-content='todo'>编辑</button>
+     <button class='editButton' bindtap='editItem' data-index='{{index}}'>编辑</button>
 
      </view>
   </block>

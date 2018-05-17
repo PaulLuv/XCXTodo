@@ -11,15 +11,15 @@ Page({
   },
 
   createTodo: function (e) {
-    let title = this.data.inputTitle.trin();
+    let title = this.data.inputTitle.trim();
     let value = this.data.inputValue.trim();
-    if (value.length < 1) {
+    if (title.length < 1) {
       wx.showToast({
-        title: '输入的内容不为空',
+        title: '请输入待办事项',
       })
       return
     }
-    let todoItem = todoItem.createTodoItem(value)
+    let todoItem = todoItem.createTodoItem(title,value)
     this.data.todoList.unshift(todoItem)
     this.setData({
       todoList: util.showDateHelper(this.data.todoList),

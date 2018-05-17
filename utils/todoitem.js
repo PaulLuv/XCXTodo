@@ -10,8 +10,9 @@ const todoItem = {
   planeDate: '',
 }
 
-const createTodoItem = (content) =>{
+const createTodoItem = (title,content) =>{
   let todo = todoItem;
+  todo.title = title;
   todo.hasDone = false;
   todo.level = 4;
   todo.content = content;

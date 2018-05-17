@@ -1,6 +1,12 @@
 /* pages/create/create.wxss */
 .input{
   width: 100%;
+  padding: 20px;
+  margin-top: 20px;
+  background: #EEE;
+}
+.textarea{
+  width: 100%;
   height: 100px;
   padding: 20px;
   margin-top: 20px;

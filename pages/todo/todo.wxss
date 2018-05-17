@@ -94,3 +94,7 @@
   color: #222;
   size: 20px;
 }
+.emptyText{
+  margin-top: 20px;
+  color: #333;
+}

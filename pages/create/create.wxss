@@ -27,27 +27,27 @@
   size: 17px;
 }
 .level1{
+  margin-left: 10px;
   color: #F00;
   size: 15px;
 }
 .level2{
+  margin-left: 10px;
   color: #A65;
   size: 15px;
 }
 .level3{
+  margin-left: 10px;
   size: 15px;
   color: #AA5;
 }
 .level4{
+  margin-left: 10px;
   size: 15px;
   color: #5A6;
 }
-.date{
-  width: 100%;
-  text-align: left;
-  margin-left: 10px;
-  padding-left: 10px;
-  color: #222;
-  size: 20px;
+.findButton{
+  margin-top: 20px;
+  color: green;
 }
 

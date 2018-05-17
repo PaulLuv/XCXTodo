@@ -6,10 +6,15 @@ const orderTodoList = todoList => {
 
 // showDateHelper 列表的两项日期相同时，只显示第一个
 const showDateHelper = todoList =>{
-  if (todoList.length < 2) {
+  if (todoList.length < 1){
+    return todoList
+  }
+  if (todoList.length == 1) {
+    todoList[0].showDate = true
     return todoList;
   }
   let date = todoList[0].date
+  todoList[0].showDate = true
   for (let i = 1; i < todoList.length; i++){
     let temp = todoList[i]
     if(temp.date === date){

@@ -6,7 +6,8 @@ Page({
    */
   data: {
     inputValue: '',
-    todoList: []
+    todoList: [],
+    showEmptyView: true,
   },
   
   deleteItem: function (event) {
@@ -18,7 +19,15 @@ Page({
       todoList: util.showDateHelper(this.data.todoList)
     })
     wx.setStorageSync("todos", this.data.todoList)
-    this.onLoad()
+    wx.setStorageSync('todos', this.data.todoList)
+    let size = this.data.todoList.length
+    this.setData({
+      showEmptyView: size == 0
+    })
+    wx.setTabBarBadge({
+      index: 0,
+      text: size.toString(),
+    })
   },
 
   editItem: function (event) {
@@ -39,7 +48,6 @@ Page({
     this.setData({
       todoList: util.showDateHelper(this.data.todoList)
     })
-    wx.setStorageSync('todos', this.data.todoList)
   },
 
   findTodo: function (event) {
@@ -64,9 +72,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function () {
-    this.setData({
-      todoList: (wx.getStorageSync('todos') || [])
-    })
+    
   },
 
   /**
@@ -80,13 +86,19 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    this.setData({
+      todoList: (wx.getStorageSync('todos') || [])
+    })
     let size  = this.data.todoList.length
-    if (size > 0){
-      wx.setTabBarBadge({
-        index: 0,
-        text: size.toString(),
-      })
-    }
+
+    this.setData({
+      showEmptyView: size == 0
+    })
+
+    wx.setTabBarBadge({
+      index: 0,
+      text: size.toString(),
+    })
     wx.setTabBarItem({
       index: 0,
       text: '待办'

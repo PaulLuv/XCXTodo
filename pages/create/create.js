@@ -35,33 +35,47 @@ Page({
     this.setData({
       todoList: util.showDateHelper(this.data.todoList),
       inputTitle: '',
-      inputValue: ''
+      inputValue: '',
     })
     wx.setStorageSync('todos', this.data.todoList)
+    wx.switchTab({
+      url: '/pages/todo/todo',
+    })
   },
 
   levelSetting: function(e){
+    let that = this
     wx.showActionSheet({
       itemList: ['重要且紧急', '重要不紧急', '紧急不重要','不紧急不重要'],
       success: function (res) {
         let level = res.tapIndex + 1;
-        this.data.level = level;
+        that.setData({
+          level: level
+        })
         switch(level){
           case (1):
-            this.data.levelText = "重要且紧急"
-            this.data.levelClass = 'level1'
+            that.setData({
+              levelText: "重要且紧急",
+              levelClass: 'level1'
+            })
             break;
           case (2):
-            this.data.levelText = "重要不紧急"
-            this.data.levelClass = 'level2'
+            that.setData({
+              levelText: "重要不紧急",
+              levelClass: 'level2'
+            })
             break;
           case (3):
-            this.data.levelText = "紧急不重要"
-            this.data.levelClass = 'level3'
+            that.setData({
+              levelText: "紧急不重要",
+              levelClass: 'level3'
+            })
             break;
           case (4):
-            this.data.levelText = "不紧急不重要"
-            this.data.levelClass = 'level4'
+            that.setData({
+              levelText: "不紧急不重要",
+              levelClass: 'level4'
+            })
             break;
         }
       },

@@ -1,7 +1,10 @@
 <!--pages/todo/todo.wxml-->
 
 <view class='todoList'>
-
+  <block wx:if="{{showEmptyView == true}}">
+    <text class='emptyText'>今天的计划是什么呢？</text>
+    <text class='emptyText'>赶紧列出你的任务清单吧!</text>
+  </block>
   <block wx:for="{{todoList}}" wx:for-item="todo" wx:key="index">
 
   <block wx:if="{{todo.showDate == true}}">
@@ -22,7 +25,7 @@
       <button class='level4!important' decode="true"> &nbsp;</button>
     </block>
 
-     <text class="todoContent">{{index + 1}}. {{todo.content}}</text> 
+     <text class="todoContent">{{index + 1}}. {{todo.title}}</text> 
 
      <button class='deleteButton' bindtap='deleteItem' data-index='index'
               data-content='todo'>删除</button>

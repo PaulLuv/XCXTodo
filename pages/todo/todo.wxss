@@ -1,91 +1,9 @@
 /* pages/todo/todo.wxss */
-.title{
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  padding-bottom: 20rpx;
+.emptyText{
+  margin-top: 20px;
+  color: #333;
 }
 
-.todoContent{
-  width: 150px;
-  color: #333;
-  text-align: left;
-  padding-left: 20px;
-}
-.deleteButton{
-  color: red;
-  margin-left: 16px;
-  height: 48px;
-  width: 80px;
-}
-.editButton{
-  margin-left: 16px;
-  height: 48px;
-  width: 80px;
-  color: green;
-}
-.findButton{
-  width: 30%;
-  height: 48px;
-  color: green;
-}
-.todoItem{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 95%;
-  background: #EEE;
-  margin-top: 10rpx;
-  margin-bottom: 10rpx;
-  border-color: #333;
-  border-radius: 4px;
-  border-width: 1px;
-}
-.todoOperation{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  padding-top: 20rpx;
-  padding-bottom: 10rpx;
-  margin-top: 10rpx;
-  margin-bottom: 10rpx;
-  border-color: #333;
-  border-radius: 4px;
-  border-width: 1px;
-}
-.todoList{
-  margin-top: 30rpx;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-}
-.level1{
-  color: #F00;
-  width: 30rpx;
-  height: 100%;
-  background: #F00;
-}
-.level2{
-  width: 30rpx;
-  height: 100%;
-  background: #A65;
-  color: #A65;
-}
-.level3{
-  width: 30rpx;
-  height: 100%;
-  background: #AA5;
-  color: #AA5;
-}
-.level4{
-  width: 30rpx;
-  height: 100%;
-  background: #5A6;
-  color: #5A6;
-}
 .date{
   width: 100%;
   text-align: left;
@@ -94,7 +12,65 @@
   color: #222;
   size: 20px;
 }
-.emptyText{
-  margin-top: 20px;
-  color: #333;
+
+.todoItem{
+  display: flex;
+  align-items: center;
+  width: 95%;
+  background: #EEE;
+  margin-top: 10rpx;
+  border-color: #333;
+  border-radius: 4px;
+  border-width: 1px;
 }
+
+.todoTitle{
+  width: 70%;
+  margin-left: 10px;
+  size: 16px;
+  font-style: blod;
+}
+
+.itemDate{
+  width: 90px;
+  margin-left: 10px;
+  margin-right: 0px;
+}
+
+.todoContent{
+  width: 200px;
+  color: #333;
+  height: 100%;
+  text-align: left;
+}
+
+.level1{
+  width: 5%;
+  color: #F00;
+  height: 100%;
+  background: #F00;
+  margin-left: 0px;
+}
+.level2{
+  width: 5%;
+  height: 100%;
+  background: #A65;
+  color: #A65;
+  margin-left: 0px;
+}
+.level3{
+  width: 5%;
+  height: 100%;
+  background: #AA5;
+  color: #AA5;
+  margin-left: 0px;
+}
+.level4{
+  margin-left: 0px;
+  width: 5%;
+  height: 100%;
+  background: #5A6;
+  color: #5A6;
+}
+
+

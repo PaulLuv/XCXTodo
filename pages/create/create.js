@@ -45,39 +45,17 @@ Page({
 
     levelSetting: function(e) {
         let that = this
+        let levelArray = ts.getLevelArray()
+        let itemList = levelArray.map(item => item.levelTitle)
         wx.showActionSheet({
-            itemList: ['重要且紧急', '重要不紧急', '紧急不重要', '不紧急不重要'],
+          itemList: itemList,
             success: function(res) {
                 let level = res.tapIndex + 1;
                 that.setData({
-                    level: level
+                    level: level,
+                    levelClass: "level" + level,
+                    levelText: itemList[level]
                 })
-                switch (level) {
-                    case (1):
-                        that.setData({
-                            levelText: "重要且紧急",
-                            levelClass: 'level1'
-                        })
-                        break;
-                    case (2):
-                        that.setData({
-                            levelText: "重要不紧急",
-                            levelClass: 'level2'
-                        })
-                        break;
-                    case (3):
-                        that.setData({
-                            levelText: "紧急不重要",
-                            levelClass: 'level3'
-                        })
-                        break;
-                    case (4):
-                        that.setData({
-                            levelText: "不紧急不重要",
-                            levelClass: 'level4'
-                        })
-                        break;
-                }
             },
             fail: function(res) {
                 console.log(res.errMsg)

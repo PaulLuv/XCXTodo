@@ -46,7 +46,8 @@
   size: 15px;
   color: #5A6;
 }
-.findButton{
+.createButton{
+  width: 300px;
   margin-top: 20px;
   color: green;
 }

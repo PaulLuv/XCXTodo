@@ -12,7 +12,26 @@ export class Todo {
         this.hasDone = false;
         this.date = formatDate(new Date());
         this.planDate = planDate;
+        this.levelClass = "level" + level;
     }
+}
+
+class Level {
+    constructor(title, level) {
+        this.levelTitle = title;
+        this.level = level;
+    }
+}
+
+let levelArray = [
+    new Level("重要且紧急", 1),
+    new Level("重要不紧急", 2),
+    new Level("紧急不重要", 3),
+    new Level("不紧急不重要", 4)
+]
+
+export function getLevelArray() {
+    return levelArray;
 }
 
 // global dataSource
@@ -25,7 +44,7 @@ export function getTodos() {
     return wx.getStorageSync("todos") || []
 }
 
-export function saveTodos() {
+export function saveTodos(todos) {
     wx.setStorageSync("todos", todos)
 }
 
@@ -42,14 +61,16 @@ export function getShowTodos() {
  * @param {*} todo 
  */
 export function addTodo(todo) {
+    let todos = getTodos()
     todos.unshift(todo)
-    saveTodos()
+    saveTodos(todos)
 }
 
 export function deleteTodo(title, index) {
+    let todos = getTodos()
     let deleteTodo = todos[index]
     if (deleteTodo.title === title) {
         todos.splice(index, 1)
     }
-    saveTodos()
+    saveTodos(todos)
 }

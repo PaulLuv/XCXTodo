@@ -1,3 +1,7 @@
+
+
+// TODO
+// orderTodoList 列表的同一个日期内，优先级高的排前面，列表的两项日期相同时，只显示第一个
 const orderTodoList = todoList => {
     if (todoList.length < 2) {
         return todoList;

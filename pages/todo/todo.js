@@ -8,12 +8,29 @@ Page({
         inputValue: '',
         todoList: [],
         showEmptyView: true,
+        showDetail: false,
+        showDetailIndex: 0,
+    },
+    itemDetailClicked: function(e) {
+        let showDetail = false;
+        let index = e.currentTarget.dataset.index;
+        if (this.data.showDetail) {
+            if (this.data.showDetailIndex == index) {
+                showDetail = false;
+            }
+        } else {
+            showDetail = true;
+        }
+        this.setData({
+            showDetail: showDetail,
+            showDetailIndex: index
+        })
     },
 
     deleteItem: function(event) {
         let index = event.target.dataset.index;
-        let deleteTodo = event.target.dataset.title
-        ts.deleteTodo(deleteTodo, index)
+        let deleteTodoTitle = event.target.dataset.title
+        ts.deleteTodo(deleteTodoTitle, index)
 
         let todos = ts.getShowTodos()
 

@@ -1,37 +1,31 @@
 <!--pages/todo/todo.wxml-->
 
-<view class='todoList'>
+<view class='container'>
+
   <block wx:if="{{showEmptyView == true}}">
     <text class='emptyText'>今天的计划是什么呢？</text>
     <text class='emptyText'>赶紧列出你的任务清单吧!</text>
   </block>
+
   <block wx:for="{{todoList}}" wx:for-item="todo" wx:key="index">
 
-  <block wx:if="{{todo.showDate == true}}">
-    <text class='date'>{{todo.date}}</text>
+    <block wx:if="{{todo.showDate == true}}">
+      <text class='date'>{{todo.date}}</text>
+    </block>
+
+    <view class='todoItem' bindtap='itemDetailClicked' data-index='{{index}}'>
+
+      <button class='{{todo.levelClass}}' decode="true"> &nbsp;</button>
+
+      <text class="todoTitle">{{index + 1}}. {{todo.title}}</text> 
+      <view class='itemDate'>3小时内</view>
+
+      <block wx:if="{{showDetail == true && showDetailIndex == index}}">
+        <view>
+          <text>detail</text>
+        </view>
+      </block>
+    </view>
+
   </block>
-  
-  <view class='todoItem'>
-    <block wx:if="{{todo.level == 1}}">
-      <button class='level1!important' decode="true"> &nbsp;</button>
-    </block>
-    <block wx:if="{{todo.level == 2}}">
-      <button class='level2!important' decode="true"> &nbsp;</button>
-    </block>
-    <block wx:if="{{todo.level == 3}}">
-      <button class='level3!important' decode="true"> &nbsp;</button>
-    </block>
-    <block wx:if="{{todo.level == 4}}">
-      <button class='level4!important' decode="true"> &nbsp;</button>
-    </block>
-
-     <text class="todoContent">{{index + 1}}. {{todo.title}}</text> 
-
-     <button class='deleteButton' bindtap='deleteItem' data-index='{{index}}' data-title='{{todo.title}}'>删除</button>
-
-     <button class='editButton' bindtap='editItem' data-index='{{index}}'>编辑</button>
-
-     </view>
-  </block>
-  
 </view>

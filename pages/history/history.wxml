@@ -1,0 +1,30 @@
+
+<view class='container'>
+
+  <block wx:if="{{showEmptyView == true}}">
+    <text class='emptyText'>暂时还没有完成任务！</text>
+    <text class='emptyText'>快去看看待办里的任务清单吧!</text>
+  </block>
+
+  <block wx:for="{{todoList}}" wx:for-item="todo" wx:key="index">
+
+    <block wx:if="{{todo.showDate == true}}">
+      <text class='date'>{{todo.date}}</text>
+    </block>
+
+    <view class='todoItem' bindtap='itemDetailClicked' data-index='{{index}}'>
+      <view class='operationItem'>
+        <button class='{{todo.levelClass}}' decode="true"> &nbsp;</button>
+
+        <text class="todoTitle">{{index + 1}}. {{todo.title}}</text> 
+        <view class='itemDate'>3小时内</view>
+      </view>
+      <view class='operationItem'>
+        <block wx:if="{{showDetail == true && showDetailIndex == index && todo.content.length > 0}}">
+            <text class='todoContent'>{{todo.content}}</text>
+        </block>
+      </view>
+    </view>
+
+  </block>
+</view>

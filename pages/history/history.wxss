@@ -1,0 +1,120 @@
+/* pages/history/history.wxss */
+.container {
+    margin: auto;
+}
+
+.emptyText {
+    margin-top: 20px;
+    color: #333;
+}
+
+.date {
+    width: 100%;
+    text-align: left;
+    margin-left: 10px;
+    padding-left: 10px;
+    color: #222;
+    size: 20px;
+}
+
+.todoItem {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 95%;
+    margin-top: 10rpx;
+    border-color: #333;
+    border-radius: 4px;
+    border-width: 1px;
+}
+
+.operationItem {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    width: 95%;
+    margin-top: 1px;
+    background: #EEE;
+    border-color: #333;
+    border-radius: 4px;
+    border-width: 1px;
+}
+
+.todoTitle {
+    width: 80%;
+    margin-left: 10px;
+    size: 16px;
+    font-style: blod;
+}
+
+.itemDate {
+    width: 90px;
+    margin-left: 10px;
+    margin-right: 0px;
+}
+
+.todoContent {
+    width: 200px;
+    color: #333;
+    height: 100%;
+    margin-top: 5px;
+    margin-left: 40px;
+    margin-bottom: 5px;
+    text-align: left;
+}
+
+.level1 {
+    width: 5%;
+    color: #F00;
+    height: 100%;
+    background: #F00;
+    margin-left: 0px;
+}
+
+.level2 {
+    width: 5%;
+    height: 100%;
+    background: #A65;
+    color: #A65;
+    margin-left: 0px;
+}
+
+.level3 {
+    width: 5%;
+    height: 100%;
+    background: #AA5;
+    color: #AA5;
+    margin-left: 0px;
+}
+
+.level4 {
+    margin-left: 0px;
+    width: 5%;
+    height: 100%;
+    background: #5A6;
+    color: #5A6;
+}
+.deleteButton{
+  margin-left: 10px;
+  margin: 5px;
+  color: red;
+  align-items: center;
+}
+.editButton{
+  margin-left: 20px;
+  margin: 5px;
+  color: green;
+  align-items: center;
+}
+.handleButton{
+  margin-left: 20px;
+  margin: 5px;
+  color: #AE5;
+  align-items: center;
+}
+.finishButton{
+  margin-left: 20px;
+  margin: 5px;
+  color: yellowgreen;
+  align-items: center;
+}

@@ -4,7 +4,8 @@
     "pages/index/index",
     "pages/logs/logs",
     "pages/create/create",
-    "pages/edit/edit"
+    "pages/edit/edit",
+    "pages/history/history"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -18,18 +19,25 @@
     "selectedColor": "#3cc51f",
     "borderStyle": "white",
     "backgroundColor": "#ffffff",
-    "list": [{
-      "pagePath": "pages/todo/todo",
-      "text": "待办",
-      "iconPath": "image/home-off.png",
-      "selectedIconPath": "image/home-on.png"
-    },
-    {
-      "pagePath": "pages/create/create",
-      "text": "添加",
-      "iconPath": "image/cart-off.png",
-      "selectedIconPath": "image/cart-on.png"
-    }
+    "list": [
+      {
+        "pagePath": "pages/todo/todo",
+        "text": "待办",
+        "iconPath": "image/home-off.png",
+        "selectedIconPath": "image/home-on.png"
+      },
+      {
+        "pagePath": "pages/create/create",
+        "text": "添加",
+        "iconPath": "image/cart-off.png",
+        "selectedIconPath": "image/cart-on.png"
+      },
+      {
+        "pagePath": "pages/history/history",
+        "text": "完成",
+        "iconPath": "image/order-off.png",
+        "selectedIconPath": "image/order-on.png"
+      }
     ]
   }
 }

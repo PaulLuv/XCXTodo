@@ -17,6 +17,8 @@ Page({
         if (this.data.showDetail) {
             if (this.data.showDetailIndex == index) {
                 showDetail = false;
+            }else{
+              showDetail = true;
             }
         } else {
             showDetail = true;
@@ -30,40 +32,89 @@ Page({
     deleteItem: function(event) {
         let index = event.target.dataset.index;
         let deleteTodoTitle = event.target.dataset.title
-        ts.deleteTodo(deleteTodoTitle, index)
+        wx.showModal({
+          title: '删除确认',
+          content: '确定要删除\' ' + deleteTodoTitle + ' \'任务吗？',
+          success(res){
+            if(res.confirm){
+              ts.deleteTodo(deleteTodoTitle, index)
 
-        let todos = ts.getShowTodos()
-
-        let size = todos.length
-        this.setData({
-            showEmptyView: size == 0,
-            todoList: todos
-        })
-        wx.setTabBarBadge({
-            index: 0,
-            text: size.toString(),
+              let todos = ts.getShowTodos()
+              let size = todos.length
+              this.setData({
+                showEmptyView: size == 0,
+                todoList: todos
+              })
+              wx.setTabBarBadge({
+                index: 0,
+                text: size.toString(),
+              })
+            }
+          },
+          fail(res){
+            console.log("delete dialog failed" + res)
+          }
         })
     },
 
-    // editItem: function(event) {
-    //     let index = event.target.dataset.index;
-    //     let content = event.target.dataset.content;
-    //     // this.data.todoList.push(index, 1)
-    //     wx.showModal({
-    //         title: '提示',
-    //         content: '这是一个模态弹窗',
-    //         success: function(res) {
-    //             if (res.confirm) {
+    handleItem: function(e){
+      let index = e.target.dataset.index;
+      let todoTitle = e.target.dataset.title
+      let todos = ts.getShowTodos()
+      let todo = todos[index]
+      if (todo.title === todoTitle){
+        ts.markDoing(todo)
+      }else{
+        return
+      }
+      ts.saveTodos(todos)
+      this.setData({
+        todoList: todos
+      })
+    },
 
-    //             } else if (res.cancel) {
-    //                 console.log('用户点击取消')
-    //             }
-    //         }
-    //     })
-    //     this.setData({
-    //         todoList: util.showDateHelper(this.data.todoList)
-    //     })
-    // },
+    finishItem: function(e){
+      let index = e.target.dataset.index;
+      let todoTitle = e.target.dataset.title
+      let todos = ts.getShowTodos()
+      let todo = todos[index]
+      if (todo.title === todoTitle) {
+        ts.markDone(todo)
+      } else {
+        return
+      }
+      ts.saveTodos(todos)
+      todos = ts.getShowTodos()
+      let size = todos.length
+      this.setData({
+        showEmptyView: size == 0,
+        todoList: todos
+      })
+      wx.setTabBarBadge({
+        index: 0,
+        text: size.toString(),
+      })
+    },
+
+    editItem: function(event) {
+        let index = event.target.dataset.index;
+        let content = event.target.dataset.content;
+        // this.data.todoList.push(index, 1)
+        wx.showModal({
+            title: '提示',
+            content: '这是一个模态弹窗',
+            success: function(res) {
+                if (res.confirm) {
+
+                } else if (res.cancel) {
+                    console.log('用户点击取消')
+                }
+            }
+        })
+        this.setData({
+            todoList: util.showDateHelper(this.data.todoList)
+        })
+    },
 
     // findTodo: function(event) {
     //     let value = this.data.inputValue.trim();

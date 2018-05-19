@@ -9,11 +9,19 @@ export class Todo {
         this.title = title;
         this.level = level;
         this.content = content;
-        this.hasDone = false;
+        this.state = 0;
         this.date = formatDate(new Date());
         this.planDate = planDate;
         this.levelClass = "level" + level;
     }
+}
+
+export function markDoing(todo) {
+  todo.state = 1
+}
+
+export function markDone(todo) {
+  todo.state = 2
 }
 
 class Level {
@@ -53,7 +61,12 @@ export function saveTodos(todos) {
  */
 export function getShowTodos() {
     let todos = getTodos()
-    return showDateHelper(todos)
+    return showDateHelper(todos.filter(item => item.state != 2))
+}
+
+export function getFinishedTodos(){
+  let todos = getTodos()
+  return showDateHelper(todos.filter(item => item.state == 2))
 }
 
 /**

@@ -14,17 +14,35 @@
     </block>
 
     <view class='todoItem' bindtap='itemDetailClicked' data-index='{{index}}'>
+      <view class='operationItem'>
+        <button class='{{todo.levelClass}}' decode="true"> &nbsp;</button>
 
-      <button class='{{todo.levelClass}}' decode="true"> &nbsp;</button>
+        <text class="todoTitle">{{index + 1}}. {{todo.title}}</text> 
+        <view class='itemDate'>3小时内</view>
+      </view>
+      <view class='operationItem'>
+        <block wx:if="{{showDetail == true && showDetailIndex == index && todo.content.length > 0}}">
+            <text class='todoContent'>{{todo.content}}</text>
+        </block>
+      </view>
+      <view class='operationItem'>
+        <block wx:if="{{showDetail == true && showDetailIndex == index}}">
+            <button size='mini' class='deleteButton' bindtap='deleteItem' 
+            data-index='{{index}}' data-title='{{todo.title}}'>删除</button>
 
-      <text class="todoTitle">{{index + 1}}. {{todo.title}}</text> 
-      <view class='itemDate'>3小时内</view>
+            <button size='mini' class='editButton' bindtap='editItem' 
+            data-index='{{index}}' data-title='{{todo.title}}'>编辑</button>
 
-      <block wx:if="{{showDetail == true && showDetailIndex == index}}">
-        <view>
-          <text>detail</text>
-        </view>
-      </block>
+            <block wx:if="{{todo.state == 0}}">
+              <button size='mini' class='handleButton' bindtap='handleItem' 
+              data-index='{{index}}' data-title='{{todo.title}}'>处理</button>
+            </block>
+            <block wx:if="{{todo.state == 1}}">
+              <button size='mini' class='finishButton' bindtap='finishItem' 
+              data-index='{{index}}' data-title='{{todo.title}}'>完成</button>
+            </block>
+        </block>
+      </view>
     </view>
 
   </block>

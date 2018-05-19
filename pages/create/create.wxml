@@ -1,5 +1,5 @@
 <view class='container'>
-  <input class='input' placeholder='请输入待办事项（必填)' auto-focus='true' bindinput='bindInputTitle' value='{{inputTitle}}'/>
+  <input class='input' placeholder='请输入待办事项（必填,不超过12字符)' auto-focus='true' bindinput='bindInputTitle' value='{{inputTitle}}' maxlength='15'/>
   <textarea class='textarea' placeholder='请输入待办内容（可选)' bindinput='bindTextarea' value='{{inputValue}}'/>
 
   <view class='levelButton' bindtap='levelSetting'>

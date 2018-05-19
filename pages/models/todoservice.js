@@ -42,6 +42,10 @@ export function getLevelArray() {
     return levelArray;
 }
 
+export function getLevelTitle(level){
+  return levelArray.filter(item => item.level == level)[0].levelTitle
+}
+
 // global dataSource
 let todos = []
 

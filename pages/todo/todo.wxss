@@ -55,11 +55,11 @@
 }
 
 .todoContent {
-    width: 200px;
+    width: 100%;
     color: #333;
     height: 100%;
     margin-top: 5px;
-    margin-left: 40px;
+    margin-left: 20px;
     margin-bottom: 5px;
     text-align: left;
 }

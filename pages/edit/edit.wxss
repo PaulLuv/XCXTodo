@@ -1,1 +1,53 @@
-/* pages/edit/edit.wxss */
+.input{
+  width: 100%;
+  padding: 20px;
+  margin-top: 20px;
+  background: #EEE;
+}
+.textarea{
+  width: 100%;
+  height: 100px;
+  padding: 20px;
+  margin-top: 20px;
+  background: #EEE;
+}
+.levelButton{
+  width: 100%;
+  display: flex;
+  margin-top: 20px;
+  margin-left: 20px;
+  flex-direction: top;
+  align-items: center;
+  border: whitesmoke;
+}
+.title{
+  color: #222;
+  font-style: blod;
+  size: 17px;
+}
+.level1{
+  margin-left: 10px;
+  color: #F00;
+  size: 15px;
+}
+.level2{
+  margin-left: 10px;
+  color: #A65;
+  size: 15px;
+}
+.level3{
+  margin-left: 10px;
+  size: 15px;
+  color: #AA5;
+}
+.level4{
+  margin-left: 10px;
+  size: 15px;
+  color: #5A6;
+}
+.createButton{
+  width: 300px;
+  margin-top: 20px;
+  color: green;
+}
+

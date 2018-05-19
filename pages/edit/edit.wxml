@@ -1,2 +1,12 @@
-<!--pages/edit/edit.wxml-->
-<text>pages/edit/edit.wxml</text>
+<view class='container'>
+  <input class='input' placeholder='请输入待办事项（必填,不超过12字符)' auto-focus='true' bindinput='bindInputTitle' value='{{title}}' maxlength='15'/>
+  <textarea class='textarea' placeholder='请输入待办内容（可选)' bindinput='bindTextarea' value='{{content}}'/>
+
+  <view class='levelButton' bindtap='levelSetting'>
+    <view class='title'>事件优先级:</view>
+    <view class='{{levelClass}}'>{{levelText}}</view>
+  </view>
+  <view >
+    <button class='createButton' bindtap='editTodo'>完成</button>
+  </view>
+</view>

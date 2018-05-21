@@ -29,19 +29,26 @@ Page({
         })
     },
 
+    createTodo: function(event) {
+      wx.switchTab({
+        url: '../../pages/create/create',
+      })
+    },
+
     deleteItem: function(event) {
         let index = event.target.dataset.index;
         let deleteTodoTitle = event.target.dataset.title
+        let that = this
         wx.showModal({
           title: '删除确认',
-          content: '确定要删除\' ' + deleteTodoTitle + ' \'任务吗？',
+          content: '确定要删除 ' + deleteTodoTitle + ' 任务吗？',
           success(res){
             if(res.confirm){
               ts.deleteTodo(deleteTodoTitle, index)
 
               let todos = ts.getShowTodos()
               let size = todos.length
-              this.setData({
+              that.setData({
                 showEmptyView: size == 0,
                 todoList: todos
               })
@@ -78,12 +85,13 @@ Page({
       let todoTitle = e.target.dataset.title
       let todos = ts.getShowTodos()
       let todo = todos[index]
+      let dones = ts.getDones()
       if (todo.title === todoTitle) {
-        ts.markDone(todo)
+        ts.deleteTodo(todoTitle, index)
+        ts.addDones(todo)
       } else {
         return
-      }
-      ts.saveTodos(todos)
+      } 
       todos = ts.getShowTodos()
       let size = todos.length
       this.setData({

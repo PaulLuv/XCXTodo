@@ -48,7 +48,7 @@ export function getLevelTitle(level){
 
 // global dataSource
 let todos = []
-
+let dones = []
 /**
  * 获取 todos 数据
  */
@@ -60,17 +60,25 @@ export function saveTodos(todos) {
     wx.setStorageSync("todos", todos)
 }
 
+export function getDones() {
+  return wx.getStorageSync("dones") || []
+}
+
+export function saveDones(todos) {
+  wx.setStorageSync("dones", todos)
+}
+
+
 /**
  * 获取 用于显示的 todos 数据
  */
 export function getShowTodos() {
     let todos = getTodos()
-    return showDateHelper(todos.filter(item => item.state != 2))
+    return showDateHelper(todos)
 }
-
-export function getFinishedTodos(){
-  let todos = getTodos()
-  return showDateHelper(todos.filter(item => item.state == 2))
+export function getShowDones() {
+  let dones = getDones()
+  return showDateHelper(dones)
 }
 
 /**
@@ -81,6 +89,12 @@ export function addTodo(todo) {
     let todos = getTodos()
     todos.unshift(todo)
     saveTodos(todos)
+}
+
+export function addDones(todo) {
+  let todos = getDones()
+  todos.unshift(todo)
+  saveDones(todos)
 }
 
 export function deleteTodo(title, index) {

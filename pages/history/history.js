@@ -52,9 +52,9 @@ Page({
     wx.setNavigationBarTitle({
       title: '历史纪录',
     })
-    let finishTodos = ts.getFinishedTodos()
+    let finishTodos = ts.getShowDones()
     this.setData({
-      showEmptyView: finishTodos.size == 0,
+      showEmptyView: finishTodos.length == 0,
       todoList: finishTodos,
     })
   },

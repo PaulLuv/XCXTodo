@@ -1,26 +1,6 @@
 /* pages/create/create.wxss */
-.input{
-  width: 100%;
-  padding: 20px;
-  margin-top: 20px;
-  background: #EEE;
-}
-.textarea{
-  width: 100%;
-  height: 100px;
-  padding: 20px;
-  margin-top: 20px;
-  background: #EEE;
-}
-.levelButton{
-  width: 100%;
-  display: flex;
-  margin-top: 20px;
-  margin-left: 20px;
-  flex-direction: top;
-  align-items: center;
-  border: whitesmoke;
-}
+
+
 .title{
   color: #222;
   font-style: blod;
@@ -46,9 +26,5 @@
   size: 15px;
   color: #5A6;
 }
-.createButton{
-  width: 300px;
-  margin-top: 20px;
-  color: green;
-}
+
 

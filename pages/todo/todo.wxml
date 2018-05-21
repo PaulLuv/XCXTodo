@@ -5,6 +5,7 @@
   <block wx:if="{{showEmptyView == true}}">
     <text class='emptyText'>今天的计划是什么呢？</text>
     <text class='emptyText'>赶紧列出你的任务清单吧!</text>
+    <button bindtap='createTodo' class='createButton'>创建任务</button>
   </block>
 
   <block wx:for="{{todoList}}" wx:for-item="todo" wx:key="index">
